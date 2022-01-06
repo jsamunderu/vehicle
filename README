@@ -63,3 +63,9 @@ CREATE TABLE USERS(
 	PASSWD VARCHAR(256) NOT NULL,
 	USERTYPE SMALLINT NOT NULL
 );
+
+# deploy to apache2
+
+sudo cp -r * /usr/lib/cgi-bin/
+sudo mv c_call_snacke/build/app.cgi .
+sudo rm -rf c_call_snacke
