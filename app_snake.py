@@ -46,6 +46,14 @@ def processOperation(template, operation, name, email, passwd):
 	user = fetchUser(email)
 	return render("result.html", content=user)
 
+def getProfileByUserId(userid):
+	user = fetchLogonProfile(logonId):
+	return render("result.html", content=user)
+
+def fetchLogonProfile(logonId):
+	sql = "SELECT USERID, NAME, EMAIL, LOGINID, PASSWD, USERTYPE FROM USERS WHERE LOGINID = ?"
+	return execSQL(sql, (logonId,))
+
 def fetchUser(email):
 	sql = "SELECT USERID, NAME, EMAIL, LOGINID, PASSWD, USERTYPE FROM USERS WHERE EMAIL = ?"
 	return execSQL(sql, (email,))

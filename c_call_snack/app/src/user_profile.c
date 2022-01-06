@@ -10,12 +10,12 @@ const char* init_user_profile(void)
 	PyObject *func = PyObject_GetAttrString(g_mod, "handleRequest");
 	Py_DECREF(g_mod);
 
-	PyObject* value = NULL;
+	PyObject *value = NULL;
 	if(func && PyCallable_Check(func)) {
 		value = PyObject_CallObject(func, NULL);
 
 	} else {
-		printf("ERROR: function getInteger()\n");
+		printf("ERROR: function handleRequest()\n");
 		Py_Finalize();
 		return NULL;
 	}
@@ -31,7 +31,7 @@ void display_toolbar(void)
 {
 	char tmp[16384], buffer[16384];
 
-	const char* result = init_user_profile();
+	const char *result = init_user_profile();
 	if (result) {	
 		int total = snprintf(tmp, sizeof(tmp) - 1, TOOL_BAR,
 			CSS, JS, NAV);
@@ -40,12 +40,30 @@ void display_toolbar(void)
 		buffer[total] = '\0';
 		printf("%s%s", "Content-type: text/html\n\n", buffer);
 	} else {
-		printf("app_snacke.py: getRequestParameters() asUTF8 = (null)\n");
+		printf("app_snacke.py: handleRequest() asUTF8 = (null)\n");
 	}
 }
 
-void display_user_profile(const int userid)
+const char* display_user_profile(const int userid)
 {
+	PyObject *func = PyObject_GetAttrString(g_mod, "getProfileByUserId");
+	Py_DECREF(g_mod);
+
+	PyObject *value = NULL;
+	if(func && PyCallable_Check(func)) {
+		value = PyObject_CallObject(func, NULL);
+
+	} else {
+		printf("ERROR: function getProfileByUserId()\n");
+		Py_Finalize();
+		return NULL;
+	}
+
+	if (!value) {	
+		printf("app_snacke.py: display_user_profile() = (null)\n");
+	}
+
+	return PyUnicode_AsUTF8(value);
 }
 
 int main(int argc, char **argv)
