@@ -69,3 +69,6 @@ CREATE TABLE USERS(
 sudo cp -r * /usr/lib/cgi-bin/
 sudo mv c_call_snacke/build/app.cgi .
 sudo rm -rf c_call_snacke
+
+visit http://localhost/cgi-bin/update_user.cgi
+
