@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title%} Result {% endblock %}
+
+{% block content %}
+<table summary="User Profile">
+	<caption>User Profile</caption>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>login ID</th>
+		<th>User Type</th>
+	</tr>
+	<tr>
+		<td>{{ content[1]}}</td>
+		<td>{{ content[2]}}</td>
+		<td>{{ content[3]}}</td>
+		<td>{{ content[5]}}</td>
+	</tr>
+</table>
+{% endblock %}

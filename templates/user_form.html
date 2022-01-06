@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title%}Home page{% endblock %}
+
+{% block content %}
+	<form action="/cgi-bin/app.cgi?viewid=1000&mode=1"  method="post">
+		<fieldset>
+			<div id="name-row" class="row clearFix ">
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name" class="formField">
+			</div>
+			<div id="email-row" class="row clearFix ">
+				<label for="name">Email:</label>
+				<input type="text" id="email" name="email" class="formField">
+			</div>
+			<div id="password-row" class="row clearFix ">
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" class="formField">
+				<div id="message">
+					<p id="error" class="error">Password must be at least 5 characters!</p>
+				</div>
+			</div>
+			<div id="submit-row">
+				<input type="submit" class="submit" value="Submit"/>
+			</div>
+		</fieldset>
+	</form>
+{% endblock %}
