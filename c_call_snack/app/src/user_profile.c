@@ -121,7 +121,7 @@ const char* display_user_profile(const int userid)
 	}
 
 	if (!value) {	
-		printf("app_snacke.py: display_user_profile() = (null)\n");
+		printf("app_snacke.py: getProfileByUserId() = (null)\n");
 	}
 
 	return PyUnicode_AsUTF8(value);
