@@ -47,7 +47,7 @@ def processOperation(template, operation, name, email, passwd):
 	return render("result.html", content=user)
 
 def getProfileByUserId(userid):
-	user = fetchLogonProfile(logonId):
+	user = fetchLogonProfile(logonid)
 	return render("result.html", content=user)
 
 def fetchLogonProfile(logonId):
