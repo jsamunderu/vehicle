@@ -32,6 +32,8 @@ int read_file(const char* filename, char* buf, size_t buf_size)
 			break;
 		}
 	}
+	fclose(file);
+
 	buf[count] = '\0';
 	return count;
 }
