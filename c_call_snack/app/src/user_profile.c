@@ -7,7 +7,7 @@
 
 PyObject *g_mod = NULL;
 
-int read_file(const char* filename, char* buf, size_t buf_size)
+int read_file(const char* filename, char buf[], size_t buf_size)
 {
 	char tmp_buf[64];
 	if (filename == NULL || strlen(filename) < 1) {
@@ -129,7 +129,7 @@ const char* display_user_profile(const int userid)
 	return PyUnicode_AsUTF8(value);
 }
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	setenv("PYTHONPATH", ".", 1);
 
